@@ -17,16 +17,16 @@ void CountTriplets(int *arr,int n)
     ans += freq[0] * (freq[0] - 1) * (freq[0] - 2) / 6;  
 
     // Case 2: 0, x, x  
-    for (int i = 1; i < n; i++)  
+    for (int i = 0; i < n; i++)  
         ans += freq[0] * freq[arr[i]] * (freq[arr[i]] - 1) / 2;  
 
     // Case 3: x, x, 2*x  
-    for (int i = 1; 2 * i < n; i++)  
+    for (int i = 0; 2 * i < n; i++)  
         ans += freq[arr[i]] * (freq[arr[i]] - 1) / 2 * freq[2 * arr[i]];  
  
     // Case 4: x, y, x + y  
     // iterate through all pairs (x, y)  
-    for (int i = 1; i < n; i++) {  
+    for (int i = 0; i < n; i++) {  
         for (int j = i + 1; arr[i] + arr[j] <= max_val && j < n; j++)  
             ans += freq[arr[i]] * freq[arr[j]] * freq[arr[i] + arr[j]];  
     }  
